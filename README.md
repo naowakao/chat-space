@@ -15,7 +15,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |body|text||
-|image|string||
+|image|text||
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key:ture|
 ### Association
@@ -69,14 +69,3 @@ Things you may want to cover:
 
 * ...
 
-
-
-
-
-cyuukannte-buru
-id   user_id  group_id
-1       1        1
-
-2       1         2
-
-3
