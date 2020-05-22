@@ -13,7 +13,7 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key:ture|
@@ -24,10 +24,19 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|group_name|string|null: false|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :messages
+- has_many :user
+
+## groups_users中間テーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :message
+- belongs_to :group
 - belongs_to :user
 
 
@@ -58,3 +67,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :message
+- belongs_to :user
