@@ -7,16 +7,16 @@
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
+- has_many :users, through: :groups_users
 - has_many :messages
-- has_many :groups
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |body|text||
 |image|string||
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key:ture|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key:ture|
 ### Association
 - belongs_to :user
 - belongs_to :group
@@ -24,17 +24,18 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
-|group_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+|group|references|null: false, foreign_key: true|
 ### Association
 - has_many :messages
-- has_many :user
+- has_many :users, through: :groups_users
+- belongs_to :groups_users
 
 ## groups_users中間テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
