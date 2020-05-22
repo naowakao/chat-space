@@ -7,8 +7,9 @@
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
-- has_many :users, through: :groups_users
+- has_many :groups through: :groups_users
 - has_many :messages
+- has_many :groups_users
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -29,7 +30,7 @@
 ### Association
 - has_many :messages
 - has_many :users, through: :groups_users
-- belongs_to :groups_users
+- has_many :groups_users
 
 ## groups_users中間テーブル
 |Column|Type|Options|
@@ -68,10 +69,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :message
-- belongs_to :user
+
+
+
+
+
+cyuukannte-buru
+id   user_id  group_id
+1       1        1
+
+2       1         2
+
+3
