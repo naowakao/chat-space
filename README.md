@@ -1,4 +1,40 @@
 # README
+# chat-space DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
+### Association
+- has_many :messages
+- has_many :groups
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key:ture|
+### Association
+- belongs_to :user
+- belongs_to :group
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :message
+- belongs_to :user
+
+
+
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
