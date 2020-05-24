@@ -1,0 +1,42 @@
+.main_chat
+  .main_chat__header
+    .main_chat__header__left-box
+      %h2.main_chat__header__left-box__title
+        test
+      %ul.main_chat__header__left-box__member
+        member
+    .main_chat__header__edit-btn
+      Edit
+      -# = link_to "#" do
+
+  .messages
+    .message
+      .message__upper-info
+        %h2.message__upper-info__talker
+          aaa 
+        %h2.message__upper-info__date
+          bbb
+      %p.message__text
+        ccc
+
+    .message
+      .message__upper-info
+        %h2.message__upper-info__talker
+          aaa 
+        %h2.message__upper-info__date
+          bbb
+      %p.message__text
+        ccc  
+
+
+
+  .form
+    %form.new-message
+      .new-message__input-box
+        .new-message__input-box__text
+          type a message
+        %label.new-message__input-box__image
+          =icon('far', 'image')
+          %input{type: "file",class:"file"}
+      .new-message__submit-btn
+        Send
