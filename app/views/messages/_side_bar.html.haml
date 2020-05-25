@@ -1,0 +1,25 @@
+.side-bar
+  .user-name
+    .user-name__top-items
+      %p.user-name__top-items__name
+        name
+      %ul.user-name__top-items__icons
+        %li.user-name__top-items__icons__new-group
+          = link_to "#" do
+            =icon('far', 'edit', class: 'tag')
+        %li.user-name__top-items__icons__edit-user
+          = link_to "#" do
+            =icon('fas', 'cog', class: 'cog')
+
+  .side-bar__group      
+    .side-bar__group__list
+      .side-bar__group__list__group-name
+        group1
+      .side-bar__group__list__group-post
+        message1
+
+    .side-bar__group__list
+      .side-bar__group__list__group-name
+        group2
+      .side-bar__group__list__group-post
+        message2
