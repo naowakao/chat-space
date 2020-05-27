@@ -2,40 +2,27 @@
   .main_chat__header
     .main_chat__header__left-box
       %h2.main_chat__header__left-box__title
-        test
+        = @group.name
       %ul.main_chat__header__left-box__member
-        member
-    .main_chat__header__edit-btn
-      Edit
+        - @group.users.each do |user|
+          = user.name
+    = link_to "Edit", edit_group_path(@group),class: "main_chat__header__edit-btn"
+       
+
 
   .messages
-    .message
-      .message__upper-info
-        %h2.message__upper-info__talker
-          aaa 
-        %h2.message__upper-info__date
-          bbb
-      %p.message__text
-        ccc
-
-    .message
-      .message__upper-info
-        %h2.message__upper-info__talker
-          aaa 
-        %h2.message__upper-info__date
-          bbb
-      %p.message__text
-        ccc  
+    = render @messages
+    
+    
 
 
 
   .form
-    %form.new-message
-      .new-message__input-box
-        .new-message__input-box__text
-          type a message
-        %label.new-message__input-box__image
-          =icon('far', 'image')
-          %input{type: "file",class:"file"}
-      .new-message__submit-btn
-        Send
+    = form_for [@group, @message] do |f|
+      .new-message
+        .new-message__input-box
+          = f.text_field :content, class: 'new-message__input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'new-message__input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'file'
+        = f.submit 'Send', class: 'new-message__submit-btn'
