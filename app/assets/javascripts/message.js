@@ -53,9 +53,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data);
       var html = buildHTML(data);
-      console.log(html);
       $('.messages').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('form')[0].reset();
