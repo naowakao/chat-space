@@ -4,6 +4,7 @@
       %h2.main_chat__header__left-box__title
         = @group.name
       %ul.main_chat__header__left-box__member
+        Member:
         - @group.users.each do |user|
           = user.name
     = link_to "Edit", edit_group_path(@group),class: "main_chat__header__edit-btn"
